@@ -1,14 +1,25 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home';
+
+const Items = () => import(/* webpackChunkName: "Items" */ '@/views/Items');
+const ItemDetails = () => import(/* webpackChunkName: "ItemDetails" */ '@/views/ItemDetails');
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    redirect: '/list-items',
+  },
+  {
+    path: '/list-items',
+    name: 'ListItems',
+    component: Items,
+  },
+  {
+    path: '/list-items/:id',
+    name: 'item',
+    component: ItemDetails,
   },
 ];
 

@@ -1,0 +1,132 @@
+<template>
+  <div class="item-wrapper">
+    <div class="item-header">
+      <span class="material-icons">
+        star_border
+      </span>
+      <span class="material-icons">
+        more_vert
+      </span>
+    </div>
+    <div class="item-body" @click="goToDetails(item)">
+      <img class="user-avatar"
+           :src="item.avatar"
+           alt="item.avatar"
+           loading="lazy">
+      <div class="personal-info">
+        <div class="main-info">{{name}}</div>
+        <span>{{item.email}}</span>
+      </div>
+    </div>
+    <div class="item-footer">
+      <div class="item-id">{{id}}</div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapActions } from 'vuex';
+
+export default {
+  name: 'Item',
+  props: {
+    item: {
+      type: Object,
+      default: () => {},
+    },
+  },
+  computed: {
+    name() {
+      return `${this.item.first_name} ${this.item.last_name}`;
+    },
+    id() {
+      return `Item ID: ${this.item.id}`;
+    },
+  },
+  methods: {
+    ...mapActions([
+      'setItemDetails',
+    ]),
+    goToDetails(item) {
+      this.setItemDetails(item.id);
+      this.$router.push(
+        {
+          name: 'item',
+          params: {
+            id: item.id,
+          },
+        },
+      );
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+  .item-wrapper {
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.03);
+    background-color: #fff;
+    color: #a3a3a3;
+    cursor: default;
+
+    .item-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px 20px 10px;
+
+      span {
+        cursor: pointer;
+
+        &:hover {
+          color: #fcc525;
+        }
+      }
+    }
+
+    .item-body {
+      overflow: hidden;
+      padding: 0 20px 20px;
+      cursor: pointer;
+
+      .user-avatar {
+        border-radius: 100%;
+        width: 96px;
+        height: 96px;
+      }
+
+      .personal-info {
+        margin-top: .5rem;
+
+        .main-info {
+          font-size: 1em;
+          font-weight: 400;
+          color: #313944;
+
+          &:hover {
+            color: #33cabb;
+            transition: all .5s ease;
+          }
+        }
+
+        span {
+          font-size: 0.75em;
+        }
+      }
+    }
+
+    .item-footer {
+      background-color: #fcfdfe;
+      border-top: 1px solid rgba(77,82,89,0.07);
+      color: #8b95a5;
+      padding: 20px;
+      display: flex;
+
+      .item-id {
+        font-size: 0.75em;
+      }
+    }
+  }
+</style>
