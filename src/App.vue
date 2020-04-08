@@ -5,7 +5,9 @@
         Items List
       </router-link>
     </header>
-    <router-view></router-view>
+    <transition name="slide" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -56,5 +58,16 @@ body {
       transition: all .5s ease;
     }
   }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity .5s, transform .5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-30%);
 }
 </style>
