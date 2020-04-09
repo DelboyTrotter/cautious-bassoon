@@ -61,25 +61,20 @@ export default {
 <style lang="scss" scoped>
   .item-details-wrapper {
     padding: 84px 30px 0;
-    display: flex;
-
-    .item-main-info {
-      width: 30%;
-    }
+    display: grid;
+    grid-gap: 25px;
 
     .item-summary {
-      width: 70%;
       background-color: $card-bg;
-      margin-left: 20px;
       display: flex;
       padding: 20px;
 
       .item-row {
         width: 100%;
+        flex-grow: 1;
         text-align: left;
         background: #f8f8f8;
         margin: 4px;
-        flex-grow: 1;
         box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
 
         .row-header {
@@ -100,17 +95,21 @@ export default {
           width: 100%;
           text-align: center;
           position: relative;
-          height: 80%;
+          margin-top: 20px;
 
           .value {
             float: left;
             width: 100%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
           }
         }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .item-details-wrapper {
+      .item-summary {
+        flex-wrap: wrap;
       }
     }
   }
