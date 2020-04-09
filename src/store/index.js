@@ -6,6 +6,7 @@ import storeConfig from './storeConfig';
 
 Vue.use(Vuex);
 
+// On this way we persist data inside local storage
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
 });

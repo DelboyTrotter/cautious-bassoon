@@ -27,6 +27,7 @@ export default {
     ]),
   },
   created() {
+    // Call action loadItemsList and set listItems
     this.loadItemsList();
   },
 };

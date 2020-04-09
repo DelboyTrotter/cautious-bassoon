@@ -10,6 +10,8 @@
     </div>
     <div class="item-body" @click="goToDetails(item)">
       <img class="user-avatar"
+           width="96"
+           height="96"
            :src="item.avatar"
            alt="item.avatar"
            loading="lazy">

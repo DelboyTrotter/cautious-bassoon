@@ -12,6 +12,7 @@ module.exports = {
     parser: 'babel-eslint',
   },
   rules: {
+    'import/prefer-default-export': 'off',
     'import/extensions': ['error', {
       'js': 'never',
       'vue': 'never',

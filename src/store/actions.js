@@ -1,22 +1,20 @@
-import api from '@/api/index';
-import fetchListItems from '@/api/__mocks__/api';
+import { loadItemsList, fetchItemDetails } from '@/api';
 import types from './mutationTypes';
 
 export default {
   loadItemsList({ commit }) {
-    api.fetchListItems()
+    loadItemsList()
       .then((items) => {
-        commit(types.SET_ITEMS_LIST, items.data);
+        commit(types.SET_ITEMS_LIST, items);
       })
       .catch((error) => {
+        // We can handle errors here and make it to be a user friendly
+        // e.g. commit(types.SET_ITEMS_FAILURE)
         Promise.reject(error);
       });
   },
-  loadItemsListTest({ commit }) {
-    return fetchListItems().then((items) => commit(types.SET_ITEMS_LIST, items));
-  },
   setItemDetails({ commit }, id) {
-    api.fetchItemDetails(id)
+    fetchItemDetails(id)
       .then((itemDetails) => {
         commit(types.SET_ITEM_DETAILS, itemDetails);
       })

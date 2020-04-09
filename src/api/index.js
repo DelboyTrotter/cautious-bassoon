@@ -1,15 +1,14 @@
 import http from './http';
 
-export default {
-  fetchListItems() {
-    return http.get('/api/users')
-      .then((response) => response.data)
-      .catch((error) => Promise.reject(error));
-  },
+const loadItemsList = () => http.get('/api/users')
+  .then((response) => response.data)
+  .catch((error) => Promise.reject(error));
 
-  fetchItemDetails(id) {
-    return http.get(`/api/users/${id}`)
-      .then((response) => response.data)
-      .catch((error) => Promise.reject(error));
-  },
+const fetchItemDetails = (id) => http.get(`/api/users/${id}`)
+  .then((response) => response.data)
+  .catch((error) => Promise.reject(error));
+
+export {
+  loadItemsList,
+  fetchItemDetails,
 };

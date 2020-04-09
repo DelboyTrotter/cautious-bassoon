@@ -1,3 +1,3 @@
-const fetchListItems = jest.fn(() => Promise.resolve([]));
+const loadItemsList = jest.fn(() => Promise.resolve([]));
 
-export default fetchListItems;
+export default loadItemsList;
