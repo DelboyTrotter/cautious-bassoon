@@ -1,6 +1,6 @@
 import actions from '@/store/actions';
 import types from '@/store/mutationTypes';
-import { fetchListItems } from '@/api/__mocks__/api';
+import fetchListItems from '@/api/__mocks__/api';
 import flushPromises from 'flush-promises';
 
 jest.mock('@/api/index');
@@ -14,7 +14,7 @@ describe('actions', () => {
       const context = {
         commit: jest.fn(),
       };
-      actions.loadItemsList(context);
+      actions.loadItemsListTest(context);
       await flushPromises();
       expect(context.commit).toHaveBeenCalledWith(types.SET_ITEMS_LIST, items);
     });

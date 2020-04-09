@@ -66,9 +66,9 @@ export default {
   .item-wrapper {
     border: 0;
     border-radius: 3px;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
     background-color: #fff;
-    color: #a3a3a3;
+    color: $card-main-text-color;
     cursor: default;
 
     .item-header {
@@ -81,7 +81,7 @@ export default {
         cursor: pointer;
 
         &:hover {
-          color: #fcc525;
+          color: $accent-color;
         }
       }
     }
@@ -103,10 +103,10 @@ export default {
         .main-info {
           font-size: 1em;
           font-weight: 400;
-          color: #313944;
+          color: $main-app-text-color;
 
           &:hover {
-            color: #33cabb;
+            color: $text-color-hover;
             transition: all .5s ease;
           }
         }
@@ -118,9 +118,9 @@ export default {
     }
 
     .item-footer {
-      background-color: #fcfdfe;
+      background-color: $card-footer-bg;
       border-top: 1px solid rgba(77,82,89,0.07);
-      color: #8b95a5;
+      color: $card-footer-text-color;
       padding: 20px;
       display: flex;
 

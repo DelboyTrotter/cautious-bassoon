@@ -23,13 +23,13 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background: #f5f6fa;
+  background: $app-bg;
 }
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $main-app-text-color;
   font-family: Roboto, sans-serif;
 }
 
@@ -38,7 +38,7 @@ body {
   flex-wrap: wrap;
   width: 100%;
   height: 64px;
-  background-color: #fff;
+  background-color: $card-bg;
   justify-content: space-between;
   padding: 0 30px;
   position: fixed;
@@ -50,11 +50,11 @@ body {
   .link {
     line-height: 64px;
     text-decoration: none;
-    color: #747474;
+    color: $link-text-color;
     text-transform: uppercase;
 
     &:hover {
-      color: #33cabb;
+      color: $text-color-hover;
       transition: all .5s ease;
     }
   }
