@@ -1,5 +1,7 @@
 <template>
   <div class="item-wrapper">
+    <!-- We could break this into another 3 components (ItemHeader, ItemBody, ItemFooter),
+    pass the data through a props and emit event to parent component when item body clicked -->
     <div class="item-header">
       <span class="material-icons">
         star_border
