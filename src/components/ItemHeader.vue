@@ -5,7 +5,7 @@
       </span>
     <span class="material-icons">
         more_vert
-      </span>
+    </span>
   </div>
 </template>
 
