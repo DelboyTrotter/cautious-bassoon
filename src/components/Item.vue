@@ -1,38 +1,28 @@
 <template>
   <div class="item-wrapper">
-    <!-- We could break this into another 3 components (ItemHeader, ItemBody, ItemFooter),
-    pass the data through a props and emit event to parent component when item body clicked -->
-    <div class="item-header">
-      <span class="material-icons">
-        star_border
-      </span>
-      <span class="material-icons">
-        more_vert
-      </span>
-    </div>
-    <div class="item-body" @click="goToDetails(item)">
-      <img class="user-avatar"
-           width="96"
-           height="96"
-           :src="item.avatar"
-           alt="item.avatar"
-           loading="lazy">
-      <div class="personal-info">
-        <div class="main-info">{{name}}</div>
-        <span>{{item.email}}</span>
-      </div>
-    </div>
-    <div class="item-footer">
-      <div class="item-id">{{id}}</div>
-    </div>
+    <ItemHeader></ItemHeader>
+    <ItemBody :avatar="item.avatar"
+              :name="name"
+              :email="item.email"
+              @goToItemDetails="goToDetails(item)">
+    </ItemBody>
+    <ItemFooter :id="item.id"></ItemFooter>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import ItemHeader from './ItemHeader';
+import ItemBody from './ItemBody';
+import ItemFooter from './ItemFooter';
 
 export default {
   name: 'Item',
+  components: {
+    ItemHeader,
+    ItemBody,
+    ItemFooter,
+  },
   props: {
     item: {
       type: Object,
@@ -42,9 +32,6 @@ export default {
   computed: {
     name() {
       return `${this.item.first_name} ${this.item.last_name}`;
-    },
-    id() {
-      return `Item ID: ${this.item.id}`;
     },
   },
   methods: {
@@ -74,63 +61,5 @@ export default {
     background-color: #fff;
     color: $card-main-text-color;
     cursor: default;
-
-    .item-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 20px 20px 10px;
-
-      span {
-        cursor: pointer;
-
-        &:hover {
-          color: $accent-color;
-        }
-      }
-    }
-
-    .item-body {
-      overflow: hidden;
-      padding: 0 20px 20px;
-      cursor: pointer;
-
-      .user-avatar {
-        border-radius: 100%;
-        width: 96px;
-        height: 96px;
-      }
-
-      .personal-info {
-        margin-top: .5rem;
-
-        .main-info {
-          font-size: 1em;
-          font-weight: 400;
-          color: $main-app-text-color;
-
-          &:hover {
-            color: $text-color-hover;
-            transition: all .5s ease;
-          }
-        }
-
-        span {
-          font-size: 0.75em;
-        }
-      }
-    }
-
-    .item-footer {
-      background-color: $card-footer-bg;
-      border-top: 1px solid rgba(77,82,89,0.07);
-      color: $card-footer-text-color;
-      padding: 20px;
-      display: flex;
-
-      .item-id {
-        font-size: 0.75em;
-      }
-    }
   }
 </style>

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 import Item from '@/components/Item';
 
 export default {
@@ -20,15 +20,6 @@ export default {
     ...mapGetters([
       'listItems',
     ]),
-  },
-  methods: {
-    ...mapActions([
-      'loadItemsList',
-    ]),
-  },
-  created() {
-    // Call action loadItemsList and set listItems
-    this.loadItemsList();
   },
 };
 </script>

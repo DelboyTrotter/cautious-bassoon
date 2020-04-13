@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-const Items = () => import(/* webpackChunkName: "Items" */ '@/views/Items');
+const ItemsList = () => import(/* webpackChunkName: "Items" */ '@/views/ItemsList');
 const ItemDetails = () => import(/* webpackChunkName: "ItemDetails" */ '@/views/ItemDetails');
 
 Vue.use(VueRouter);
@@ -14,7 +14,7 @@ const routes = [
   {
     path: '/list-items',
     name: 'ListItems',
-    component: Items,
+    component: ItemsList,
   },
   {
     path: '/list-items/:id',

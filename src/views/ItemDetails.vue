@@ -1,9 +1,11 @@
 <template>
   <div class="item-details-wrapper">
-    <div class="item-main-info" v-if="itemDetails.data">
+    <div class="item-main-info"
+         v-if="itemDetails.data">
       <Item :item="itemDetails.data"></Item>
     </div>
-    <div class="item-summary" v-if="itemDetails.ad">
+    <div class="item-summary"
+         v-if="itemDetails.ad">
       <div class="item-row">
         <div class="row-header">
           <span class="label">Company</span>
@@ -71,17 +73,12 @@ export default {
 
       .item-row {
         width: 100%;
-        flex-grow: 1;
-        text-align: left;
         background: #f8f8f8;
         margin: 4px;
         box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
 
         .row-header {
-          width: 100%;
-          height: 40px;
           background: #e3e3e3;
-          text-align: center;
 
           .label {
             text-transform: uppercase;
@@ -96,11 +93,6 @@ export default {
           text-align: center;
           position: relative;
           margin-top: 20px;
-
-          .value {
-            float: left;
-            width: 100%;
-          }
         }
       }
     }

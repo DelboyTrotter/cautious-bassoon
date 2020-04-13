@@ -12,8 +12,19 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'App',
+  methods: {
+    ...mapActions([
+      'loadItemsList',
+    ]),
+  },
+  created() {
+    // Call action loadItemsList and set listItems
+    this.loadItemsList();
+  },
 };
 </script>
 
@@ -35,11 +46,9 @@ body {
 
 .header {
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
-  height: 64px;
   background-color: $card-bg;
-  justify-content: space-between;
+  color: $link-text-color;
   padding: 0 30px;
   position: fixed;
   top: 0;
@@ -48,9 +57,9 @@ body {
   box-shadow: 4px 0 5px rgba(0,0,0,0.08);
 
   .link {
+    color: $link-text-color;
     line-height: 64px;
     text-decoration: none;
-    color: $link-text-color;
     text-transform: uppercase;
 
     &:hover {
@@ -68,6 +77,6 @@ body {
 .slide-enter,
 .slide-leave-to {
   opacity: 0;
-  transform: translateX(-30%);
+  transform: translateX(-20%);
 }
 </style>
